@@ -1,0 +1,20 @@
+{
+    "name": "ls_datalake",
+    "type": "Microsoft.Synapse/workspaces/linkedservices",
+    "properties": {
+        "type": "AzureBlobFS",
+        "parameters": {
+            "storageAccountName": {
+                "type": "string"
+            }
+        },
+        "annotations": [],
+        "typeProperties": {
+            "url": "@{concat('https://',linkedService().storageAccountName,'.dfs.core.windows.net')}"
+        },
+        "connectVia": {
+            "referenceName": "AutoResolveIntegrationRuntime",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}

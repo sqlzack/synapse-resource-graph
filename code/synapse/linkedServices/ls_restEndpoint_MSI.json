@@ -1,0 +1,26 @@
+{
+    "name": "ls_restEndpoint_MSI",
+    "type": "Microsoft.Synapse/workspaces/linkedservices",
+    "properties": {
+        "parameters": {
+            "baseURL": {
+                "type": "String"
+            },
+            "aadResource": {
+                "type": "String"
+            }
+        },
+        "annotations": [],
+        "type": "RestService",
+        "typeProperties": {
+            "url": "@{linkedService().baseURL}",
+            "enableServerCertificateValidation": true,
+            "authenticationType": "ManagedServiceIdentity",
+            "aadResourceId": "@{linkedService().aadResource}"
+        },
+        "connectVia": {
+            "referenceName": "AutoResolveIntegrationRuntime",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}

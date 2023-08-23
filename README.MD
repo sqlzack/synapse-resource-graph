@@ -12,22 +12,24 @@ This repository is a demonstration of a path to creating custom reporting from t
 - __Power BI__ - Used to visualize and share data from the Serverless SQL queries.
 
 ### Pre-Requisites
-1) Owner access to an empty RG.
-2) Someone who can give the Synapse MSI "Read" access on relevant Subscriptions. 
+1) Owner access to an Azure Resource Group.
+2) Access to a user that can grant Role-based permissions at the Azure Subscription level
+3) Ensure the below Resource Providers are [Registered](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
+    - Microsoft.Synapse
+    - Microsoft.Sql
 
 ### Steps
 
-1) Deploy Synapse via the Deployments Repo
-2) Give Synapse MSI Data Contributor on Storage Account
-3) Detail RBAC needed to pull from Resource Grid
-3) Go into Synapse and set up Linked Services and Publish
-4) Import pipelin from template and Publish (Ensure Template has no sensitive info!)
-5) Debug Pipeline  
-    - Show setting parameters
-        - https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2020-04-01-preview
-        - https://management.azure.com
+1) Deploy Synapse to your Resource Group by clicking the button below.
+
+    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fsqlzack%2Fzm-deployment-repo%2Fmain%2Farm%2Fsynapse%2FsynapseBase.json)
+
+2) Grant Synapse's Managed Identity access to the Storage Account that deployed with it by following the steps in this [link](https://learn.microsoft.com/en-us/azure/synapse-analytics/security/how-to-grant-workspace-managed-identity-permissions#grant-permissions-to-managed-identity-after-workspace-creation).
+3) Grant Synapse the "Reader" [role](https://learn.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) for the Subscriptions you want to build reporting against.
+3) [Set Up Linked Services in Synapse](./docs/linkedServices.md)
+4) [Import pipeline from template and Publish](./docs/pipeline.md)
+5) [Set Variables and Run Pipeline](./docs/runPipeline.md) 
 6) Debug SQL
-    - Show how to add in ABFS path
 7) Optional: Try the notebook way
     - Deploy spark pool 
     - change variables in notebook

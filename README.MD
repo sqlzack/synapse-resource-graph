@@ -3,12 +3,15 @@
 ### Description
 This repository is a demonstration of a path to creating custom reporting from the Azure Resource Graph.
 
+### Disclaimer
+This repository is for __EDUCATION PURPOSES ONLY__. It is __not endorsed__ by Microsoft. It is __only a Proof of Concept__ and __not best practice prescription__.
+
 ### Tools Used
 - __Azure Resource Graph REST API__ - Allows for sending a query to the Resource Graph and receiving a paged response back for consumption in downstream processing.
 - __Azure Synapse Analytics__ - Synapse is a comprehensive analytics platform supporting a wide array of use cases with a diverse set of analytics engines. For this example, we'll be using two of those engines to balance both simplicity and cost.
     - __Pipelines__ - Orchestration for data movement. In this case, call the API, if there are additional pages then repeat the call, and drop the data to a storage destination in JSON format. 
     - __Serverless SQL__ - Pick up data from the Storage Location defined in the Pipelines and transform it to a meaningful structure for reporting.
-- __Azure Data Lake Storage Gen 2__ - Data transferred from the Synapse Pipelins will land in Data Lake Storage to be used with Synapse Serverless SQL. 
+- __Azure Data Lake Storage Gen 2__ - Data transferred from the Synapse Pipelines will land in Data Lake Storage to be used with Synapse Serverless SQL. 
 - __Power BI__ - Used to visualize and share data from the Serverless SQL queries.
 
 ### Pre-Requisites

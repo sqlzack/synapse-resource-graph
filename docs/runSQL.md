@@ -7,13 +7,4 @@
     ![](./images/runSql02.gif)
 
 3) Run the query and ensure results are as intended.
-4) If results are as intended and you would like to view them in a reporting tool, run the below to create a Database to store a view which will point to the data saved from Resource Graph.
-    ```
-    IF DB_ID('resourceGraphQueryResults') IS NULL 
-    BEGIN
-        CREATE DATABASE resourceGraphQueryResults
-    END 
-
-    /*Statement
-    USE resourceGraphQueryResults
-    ```
+4) If results are as intended and you would like to view them in a reporting tool, repeat step one using the [setUpDbAndView.sql](../code/synapse/sql/setUpDbAndView.sql) script. This will create a serverless database that can be used by Power BI and other reporting tools to visualize the data.

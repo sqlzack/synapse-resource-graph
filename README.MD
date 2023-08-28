@@ -32,7 +32,7 @@ This repository is for __EDUCATION PURPOSES ONLY__. It is __not endorsed__ by Mi
 3) [Set Up Linked Services in Synapse](./docs/linkedServices.md)
 4) [Import pipeline from template and Publish](./docs/pipeline.md)
 5) [Set Variables and Run Pipeline](./docs/runPipeline.md) 
-6) Debug SQL
+6) [Debug SQL](./docs/runSQL.md)
 7) Optional: Try the notebook way
     - Deploy spark pool 
     - change variables in notebook
